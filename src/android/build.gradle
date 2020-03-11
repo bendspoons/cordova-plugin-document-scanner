@@ -1,11 +1,11 @@
 allprojects {
 	repositories {
-		maven { 
-			url 'https://jitpack.io' 
+		maven {
+			url 'https://jitpack.io'
 		}
 	}
 }
 
 dependencies {
-	implementation 'com.github.NeutrinosPlatform:scanlibrary:2.3'
+	implementation 'com.github.bendspoons:scanlibrary:-SNAPSHOT'
 }
