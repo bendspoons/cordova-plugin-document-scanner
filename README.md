@@ -3,6 +3,8 @@
 
 >  **DOCUMENTATION** - This doc explains the use of plugin ver 4.x.x. For documentation of ver 3.x.x of the plugin, please see the branch [ver/3.x.x](https://github.com/NeutrinosPlatform/cordova-plugin-document-scanner/tree/ver/3.x.x) on github. For ver 2.x.x and below please read the documentation within each of the npm releases.
 
+>  **DOCUMENTATION** - REMOVED IOS INSTALL
+
 This plugin defines a global `scan` object, which provides an API to scan the document using camera (iOS and Android) or by choosing an image from the system's photo library (Android). The plugin does provide edge detection while scanning.
 
 Although the object is attached to the global scoped `window`, it is not available until after the `deviceready` event.
@@ -20,7 +22,7 @@ function onDeviceReady() {
 - Android
 
 - iOS
-  
+
 # Installation
 
 ```
@@ -56,8 +58,8 @@ The `scan.scanDoc` function opens the device's camera that allows users to snap 
 ## options
  - **sourceType** [Default value is 1]  :- When `sourceType` in options object is `1`(default) device camera opens so user can click a pic. When `0` gallery opens up so user can select an image.
 	- **Platform Support** : Android only
-	- **Version Support** : 3.x.x & 4.x.x 
-	 
+	- **Version Support** : 3.x.x & 4.x.x
+
  - **fileName** [Default value is "image"] :- User can specify the name of the file without the file extension. File extension is always .jpg for now
 	- **Platform Support** : iOS only
 	- **Version Support** : 4.x.x only
@@ -65,12 +67,12 @@ The `scan.scanDoc` function opens the device's camera that allows users to snap 
 
  - **quality** [Default value is 1]  :- `quality` in options object can take float values values from `1.0`(default - Highest quality) to `5.0`(Lowest Quality). Any value not equal to or not between these values will default to the highest quality of `1.0`.
 	- **Platform Support** : Android and iOS
-	- **Version Support** : >= 4.1.0 
-    - **Important Notes** : Android subsamples to change quality while iOS does JPEG compression to change quality so there might be small changes in quality between devices. 
+	- **Version Support** : >= 4.1.0
+    - **Important Notes** : Android subsamples to change quality while iOS does JPEG compression to change quality so there might be small changes in quality between devices.
 
- - **returnBase64** [Default value is false]  :- `returnBase64` in options object can only take boolean values. If `true`, the plugin will return the scanned image as base64. If `false`, the plugin will return the image URL of the image. 
+ - **returnBase64** [Default value is false]  :- `returnBase64` in options object can only take boolean values. If `true`, the plugin will return the scanned image as base64. If `false`, the plugin will return the image URL of the image.
 	- **Platform Support** : Android and iOS
-	- **Version Support** : >= 4.2.0 
+	- **Version Support** : >= 4.2.0
     - **Important Notes** : For Android even when base64 is returned the image will still get saved to memory. For iOS this isn't the case.
 
 > Plugin adds file:// in front of the imageuri returned for both android and ios. <br/>
@@ -98,8 +100,8 @@ scan.scanDoc(successCallback, errorCallback, options);
 
 Take a photo and retrieve the image's file location. Options need not be passed in, if the default values are being used.
 ```js
-    scan.scanDoc(successCallback, errorCallback, {sourceType : 1, fileName : "myfilename", quality : 1.0, returnBase64 : false}); 
-    // sourceType will by default take value 1 if no value is set | 0 for gallery | 1 for camera. 
+    scan.scanDoc(successCallback, errorCallback, {sourceType : 1, fileName : "myfilename", quality : 1.0, returnBase64 : false});
+    // sourceType will by default take value 1 if no value is set | 0 for gallery | 1 for camera.
     // fileName will take default value "image" if no value set. Supported only on 4.x.x plugin version
     // quality will take default value 1.0 (highest). Lowest value is 5.0. Any value in between will be accepted
     // returnBase64 will take default boolean value false, meaning image URL is returned. If true base64 is returned
@@ -107,7 +109,7 @@ Take a photo and retrieve the image's file location. Options need not be passed 
         alert(imageData);
         console.log(imageData);
         //var image = document.getElementById('myImage');
-        //image.src = imageData; // Image URL rendering. 
+        //image.src = imageData; // Image URL rendering.
 	//image.src = imageData + '?' + Date.now(); // For iOS, use this to solve issue 10 if unique fileName is not set.
 	//image.src = "data:image/jpeg;base64," + imageData; // Base64 rendering
     }
@@ -119,7 +121,7 @@ Take a photo and retrieve the image's file location. Options need not be passed 
 
 # iOS Quirks
 
-- iOS has only document scan via camera for now (Any argument passed will start the camera scan). Document Scan from gallery will be available in future version. Also scanned images aren't saved to the gallery in iOS. 
+- iOS has only document scan via camera for now (Any argument passed will start the camera scan). Document Scan from gallery will be available in future version. Also scanned images aren't saved to the gallery in iOS.
 
 - Please don't forget to delete the files if you use the `fileName` option to create your own filenames.
 
@@ -184,7 +186,7 @@ Android :- [AndroidScanner](https://github.com/jhansireddy/AndroidScannerDemo) <
 iOS [4.x.x] :- [IRLDocumentScanner](https://github.com/charlymr/IRLDocumentScanner) <br/>
 
 iOS [3.x.x] :- [WeScan](https://github.com/WeTransfer/WeScan)
-  
+
 Huge thanks to these authors for making their document scanning native libraries public.
 
 

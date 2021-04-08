@@ -23,7 +23,7 @@
     <framework src="src/android/build.gradle" custom="true" type="gradleReference"/>
   </platform>
 
-
+<!--
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="Scan">
@@ -46,5 +46,6 @@
     <framework src="src/ios/TOCropViewController.framework" custom="true" embed="true"/>
     <framework src="src/ios/IRLDocumentScanner.framework" custom="true" embed="true"/>
   </platform>
+-->
 
 </plugin>
